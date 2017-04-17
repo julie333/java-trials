@@ -1,0 +1,45 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'application'
+
+jar {
+	baseName = 'complex-datastructures'
+	version = '1.0.0-SNAPSHOT'
+}
+
+mainClassName = "org.example.app.MyApp"
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+ext.assertJVersion  = '3.5.2'
+ext.junitVersion    = '4.12'
+ext.mockitoJVersion = '2.7.0'
+ext.lombokVersion	= '1.16.12'
+ext.log4jVersion 	= '2.8'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	compileOnly("org.projectlombok:lombok:${lombokVersion}")
+	testCompile("junit:junit:${junitVersion}")
+	testCompile("org.assertj:assertj-core:${assertJVersion}")
+	testCompile("org.mockito:mockito-core:${mockitoJVersion}")
+	compile("org.apache.logging.log4j:log4j-api:${log4jVersion}")
+	compile("org.apache.logging.log4j:log4j-core:${log4jVersion}")
+}
+
+task wrapper(type: Wrapper) {
+	gradleVersion = '3.3'
+}
+
+task showMeCache {
+  doLast {
+    println('compileOnly dependencies:')
+    configurations.compileOnly.each { println it }
+    println('testCompile dependencies:')
+    configurations.testCompile.each { println it }
+  }
+}
