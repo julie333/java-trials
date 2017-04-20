@@ -47,9 +47,87 @@ public class DsPractice<T> {
 
 		twoSum(new int[] { 50, 30, 40, 60, 10, 50, 20 }, 100);
 
+		stringFunctionsinJava();
+		
+		regexJava();
+		
+
 	}
 
 	/**************************** Solution **********************************/
+	
+	// String Functions Java
+		public static void regexJava() {
+			
+			
+		}
+			
+
+	// String Functions Java
+	public static void stringFunctionsinJava() {
+		
+		String str = "meandmyself";
+		System.out.println(str.charAt(2));
+		
+		String str1 = "java";
+		System.out.println(str1.equalsIgnoreCase("JAVA"));
+		
+		String str2 = "Change me";
+		System.out.println(str2.replace('m','M'));
+		
+//		public String substring(int begin);
+//		public String substring(int begin, int end); 
+		
+		String str3 = "0123456789";
+		System.out.println(str3.substring(4));
+		
+		 StringBuilder str4 = new StringBuilder("study");
+		  str4.append( "tonight" );
+		  System.out.println(str4);
+		  str4.replace( 6, 13, "today");
+		  System.out.println(str4);
+		  str4.reverse();
+		  System.out.println(str4);
+		  str4.replace( 6, 13, "today");
+		  
+		  String s1="WhataString";
+		  s1= s1.concat("Hello").concat(".").concat("Bye");
+		  
+		  String s2 = new String("What - A - String");
+		  
+		  System.out.println("split(String regex, int limit) with limit=2:");
+	       String array2[]= s2.split("/", 2);
+	       for (String temp: array2){
+	          System.out.println(temp);
+	       }
+	       System.out.println("split(String regex, int limit) with limit=0:");
+	       String array3[]= s2.split("/");
+	       for (String temp: array3){
+	          System.out.println(temp);
+	       }
+	       System.out.println("split(String regex, int limit) with limit=-5:");
+	       String array4[]= s2.split("/", -7);
+	       for (String temp: array4){
+	          System.out.println(temp);
+	       }
+	       
+	       String s3 = new String("WhataStriSng");
+	       System.out.println("Index of S in str1: "+s3.indexOf('S'));
+	       System.out.println("Last 'S' in str1: "+s3.lastIndexOf('S'));
+	       System.out.println("Starts with: "+s3.startsWith("What"));
+		
+		  
+		  String str5 = new String("Java String Methods");
+
+	       System.out.print("Regex: (.*)String(.*) matches string? " );
+	       System.out.println(str5.matches("(.*)String(.*)"));
+
+	       System.out.print("Regex: (.*)Strings(.*) matches string? " );
+	       System.out.println(str5.matches("(.*)Strings(.*)"));
+
+	       System.out.print("Regex: (.*)Methods matches string? " );
+	
+	}
 
 	// You have to return a string which says the number's range which are not
 	// in the given array separated by comma.
@@ -135,22 +213,26 @@ public class DsPractice<T> {
 	public static void twoSum(int[] numbers, int target) {
 
 		Map<Integer, Integer> twosumList = new HashMap<Integer, Integer>();
-		
+
 		for (int i = 0; i < numbers.length; i++) {
 			Integer diff = target - numbers[i];
 			if (twosumList.containsKey(diff)) {
-				int toReturn[] = {twosumList.get(diff) + 1, i + 1};
+				int toReturn[] = { twosumList.get(diff) + 1, i + 1 };
 			}
 			twosumList.put(numbers[i], i);
 		}
-		
+
 		System.out.println(twosumList);
 	}
+
+	// Write a program that breaks up a string of words with no spaces into a
+	// string with appropriate spaces
 
 	// Find 3 numbers in an array adding up to a given sum S. 3SUM
 
 	// Given a list of integers of at least length 7,
-	// print the average of each consecutive 7 number long subsequence (sliding window).
+	// print the average of each consecutive 7 number long subsequence (sliding
+	// window).
 
 	// How would you find the power set of a set of numbers?
 
