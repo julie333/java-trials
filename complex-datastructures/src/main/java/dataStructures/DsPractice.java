@@ -2,10 +2,12 @@ package dataStructures;
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.Queue;
+import java.util.Scanner;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
@@ -48,85 +50,104 @@ public class DsPractice<T> {
 		twoSum(new int[] { 50, 30, 40, 60, 10, 50, 20 }, 100);
 
 		stringFunctionsinJava();
-		
-		regexJava();
-		
+
+		fizzBuzz(1, 30);
+
+		findTheMissingNumber(new int[] { 7, 6, 0, 1, 3, 2, 4 });
+
+		binarySearch(new int[] { 7, 6, 0, 1, 3, 2, 4 }, 3);
 
 	}
 
 	/**************************** Solution **********************************/
-	
-	// String Functions Java
-		public static void regexJava() {
-			
-			
+
+	// FizzBuzz Functions Java
+	public static String[] fizzBuzz(int start, int end) {
+
+		String result[] = new String[end - start];
+		int n = 0;
+		for (int i = start; i < end; i++) {
+			if (i % 3 == 0 && i % 5 == 0)
+				result[n] = "FizzBuzz";
+			else if (i % 3 == 0)
+				result[n] = "Fizz";
+			else if (i % 5 == 0)
+				result[n] = "Buzz";
+			else
+				result[n] = String.valueOf(i);
+			n = n + 1;
+
 		}
-			
+
+		for (String s : result)
+			System.out.println(s);
+
+		return result;
+	}
 
 	// String Functions Java
 	public static void stringFunctionsinJava() {
-		
+
 		String str = "meandmyself";
 		System.out.println(str.charAt(2));
-		
+
 		String str1 = "java";
 		System.out.println(str1.equalsIgnoreCase("JAVA"));
-		
+
 		String str2 = "Change me";
-		System.out.println(str2.replace('m','M'));
-		
-//		public String substring(int begin);
-//		public String substring(int begin, int end); 
-		
+		System.out.println(str2.replace('m', 'M'));
+
+		// public String substring(int begin);
+		// public String substring(int begin, int end);
+
 		String str3 = "0123456789";
 		System.out.println(str3.substring(4));
-		
-		 StringBuilder str4 = new StringBuilder("study");
-		  str4.append( "tonight" );
-		  System.out.println(str4);
-		  str4.replace( 6, 13, "today");
-		  System.out.println(str4);
-		  str4.reverse();
-		  System.out.println(str4);
-		  str4.replace( 6, 13, "today");
-		  
-		  String s1="WhataString";
-		  s1= s1.concat("Hello").concat(".").concat("Bye");
-		  
-		  String s2 = new String("What - A - String");
-		  
-		  System.out.println("split(String regex, int limit) with limit=2:");
-	       String array2[]= s2.split("/", 2);
-	       for (String temp: array2){
-	          System.out.println(temp);
-	       }
-	       System.out.println("split(String regex, int limit) with limit=0:");
-	       String array3[]= s2.split("/");
-	       for (String temp: array3){
-	          System.out.println(temp);
-	       }
-	       System.out.println("split(String regex, int limit) with limit=-5:");
-	       String array4[]= s2.split("/", -7);
-	       for (String temp: array4){
-	          System.out.println(temp);
-	       }
-	       
-	       String s3 = new String("WhataStriSng");
-	       System.out.println("Index of S in str1: "+s3.indexOf('S'));
-	       System.out.println("Last 'S' in str1: "+s3.lastIndexOf('S'));
-	       System.out.println("Starts with: "+s3.startsWith("What"));
-		
-		  
-		  String str5 = new String("Java String Methods");
 
-	       System.out.print("Regex: (.*)String(.*) matches string? " );
-	       System.out.println(str5.matches("(.*)String(.*)"));
+		StringBuilder str4 = new StringBuilder("study");
+		str4.append("tonight");
+		System.out.println(str4);
+		str4.replace(6, 13, "today");
+		System.out.println(str4);
+		str4.reverse();
+		System.out.println(str4);
+		str4.replace(6, 13, "today");
 
-	       System.out.print("Regex: (.*)Strings(.*) matches string? " );
-	       System.out.println(str5.matches("(.*)Strings(.*)"));
+		String s1 = "WhataString";
+		s1 = s1.concat("Hello").concat(".").concat("Bye");
 
-	       System.out.print("Regex: (.*)Methods matches string? " );
-	
+		String s2 = new String("What - A - String");
+
+		System.out.println("split(String regex, int limit) with limit=2:");
+		String array2[] = s2.split("/", 2);
+		for (String temp : array2) {
+			System.out.println(temp);
+		}
+		System.out.println("split(String regex, int limit) with limit=0:");
+		String array3[] = s2.split("/");
+		for (String temp : array3) {
+			System.out.println(temp);
+		}
+		System.out.println("split(String regex, int limit) with limit=-5:");
+		String array4[] = s2.split("/", -7);
+		for (String temp : array4) {
+			System.out.println(temp);
+		}
+
+		String s3 = new String("WhataStriSng");
+		System.out.println("Index of S in str1: " + s3.indexOf('S'));
+		System.out.println("Last 'S' in str1: " + s3.lastIndexOf('S'));
+		System.out.println("Starts with: " + s3.startsWith("What"));
+
+		String str5 = new String("Java String Methods");
+
+		System.out.print("Regex: (.*)String(.*) matches string? ");
+		System.out.println(str5.matches("(.*)String(.*)"));
+
+		System.out.print("Regex: (.*)Strings(.*) matches string? ");
+		System.out.println(str5.matches("(.*)Strings(.*)"));
+
+		System.out.print("Regex: (.*)Methods matches string? ");
+
 	}
 
 	// You have to return a string which says the number's range which are not
@@ -188,6 +209,25 @@ public class DsPractice<T> {
 			tset.add(n);
 		}
 
+		LinkedList<Integer> list = new LinkedList<>();
+
+		list.add(1);
+		list.add(2);
+		list.add(3);
+		list.add(4);
+
+		// list.listIterator(2) : Returns a list-iterator of the elements in this list (in proper
+		// sequence), starting at the specified position in the list. Obeys the
+		// general contract of List.listIterator(int).
+
+		for (Iterator<Integer> iterator = list.listIterator(2); iterator.hasNext();) {
+			Integer integer = (Integer) iterator.next();
+			System.err.println(integer);
+		}
+		
+		int mid = list.size()/2;
+		list.remove(mid);
+
 		System.out.println(tset.headSet(tset.last()));
 		System.out.println(tset.tailSet(tset.first()));
 	}
@@ -225,6 +265,132 @@ public class DsPractice<T> {
 		System.out.println(twosumList);
 	}
 
+	// I have an array of the numbers 1 to 100 in a random number. One of the
+	// numbers is missing.
+	// Write an algorithm to figure out what the number is and what position is
+	// missing.
+
+	public static void findTheMissingNumber(int[] numberArray) {
+		int sumOfAllNumbers = 0;
+		int sumOfNumbersPresent = 0;
+		int blankSpace = 0;
+		for (int i = 0; i < numberArray.length; i++) {
+			sumOfAllNumbers += i + 1;
+			sumOfNumbersPresent += numberArray[i];
+			if (numberArray[i] == 0)
+				blankSpace = i;
+			// sumOfAllNumbers = (numberArray.length+1) * (numberArray.length)/
+			// 2.0
+		}
+		System.out.println("\nMissing number = " + (sumOfAllNumbers - sumOfNumbersPresent) + " at location "
+				+ blankSpace + " of the array");
+	}
+
+	// Binary Search
+	public static void binarySearch(int[] array, int search) {
+		int first, last, middle;
+		int n = array.length;
+		first = 0;
+		last = n - 1;
+		middle = (first + last) / 2;
+		while (first <= last) {
+			if (array[middle] < search)
+				first = middle + 1;
+			else if (array[middle] == search) {
+				System.out.println(search + " found at location " + (middle + 1) + ".");
+				break;
+			} else
+				last = middle - 1;
+			middle = (first + last) / 2;
+		}
+		if (first > last)
+			System.out.println(search + " is not present in the list.\n");
+	}
+
+	// Matrix Multiplication
+
+	public static void matrixMultiplication() {
+		int m, n, p, q, sum = 0, c, d, k;
+
+		Scanner in = new Scanner(System.in);
+		System.out.println("Enter the number of rows and columns of first matrix");
+		m = in.nextInt();
+		n = in.nextInt();
+
+		int first[][] = new int[m][n];
+
+		System.out.println("Enter the elements of first matrix");
+
+		for (c = 0; c < m; c++)
+			for (d = 0; d < n; d++)
+				first[c][d] = in.nextInt();
+
+		System.out.println("Enter the number of rows and columns of second matrix");
+		p = in.nextInt();
+		q = in.nextInt();
+		in.close();
+
+		if (n != p)
+			System.out.println("Matrices with entered orders can't be multiplied with each other.");
+		else {
+			int second[][] = new int[p][q];
+			int multiply[][] = new int[m][q];
+
+			System.out.println("Enter the elements of second matrix");
+
+			for (c = 0; c < p; c++)
+				for (d = 0; d < q; d++)
+					second[c][d] = in.nextInt();
+
+			for (c = 0; c < m; c++) {
+				for (d = 0; d < q; d++) {
+					for (k = 0; k < p; k++) {
+						sum = sum + first[c][k] * second[k][d];
+					}
+					multiply[c][d] = sum;
+					sum = 0;
+				}
+			}
+
+			System.out.println("Product of entered matrices:-");
+
+			for (c = 0; c < m; c++) {
+				for (d = 0; d < q; d++)
+					System.out.print(multiply[c][d] + "\t");
+				System.out.print("\n");
+			}
+		}
+	}
+
+	// Quick Sort
+	int partition(int arr[], int left, int right) {
+		int i = left, j = right;
+		int tmp;
+		int pivot = arr[(left + right) / 2];
+		while (i <= j) {
+			while (arr[i] < pivot)
+				i++;
+			while (arr[j] > pivot)
+				j--;
+			if (i <= j) {
+				tmp = arr[i];
+				arr[i] = arr[j];
+				arr[j] = tmp;
+				i++;
+				j--;
+			}
+		}
+		return i;
+	}
+
+	void quickSort(int arr[], int left, int right) {
+		int index = partition(arr, left, right);
+		if (left < index - 1)
+			quickSort(arr, left, index - 1);
+		if (index < right)
+			quickSort(arr, index, right);
+	}
+
 	// Write a program that breaks up a string of words with no spaces into a
 	// string with appropriate spaces
 
@@ -235,5 +401,17 @@ public class DsPractice<T> {
 	// window).
 
 	// How would you find the power set of a set of numbers?
+
+	// finding duplicate numbers
+
+	// Scanner in = new Scanner(System.in);
+	// System.out.println("Enter number of elements");
+	// n = in.nextInt();
+	// array = new int[n];
+	// System.out.println("Enter " + n + " integers");
+	// for (c = 0; c < n; c++) array[c] = in.nextInt();
+	// System.out.println("Enter value to find");
+	// search = in.nextInt();
+
 
 }
