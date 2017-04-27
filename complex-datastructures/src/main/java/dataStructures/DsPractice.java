@@ -3,9 +3,11 @@ package dataStructures;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Queue;
 import java.util.Scanner;
 import java.util.TreeMap;
@@ -56,6 +58,8 @@ public class DsPractice<T> {
 		findTheMissingNumber(new int[] { 7, 6, 0, 1, 3, 2, 4 });
 
 		binarySearch(new int[] { 7, 6, 0, 1, 3, 2, 4 }, 3);
+
+		longestString("abcdeefghijklnmmno");
 
 	}
 
@@ -216,7 +220,8 @@ public class DsPractice<T> {
 		list.add(3);
 		list.add(4);
 
-		// list.listIterator(2) : Returns a list-iterator of the elements in this list (in proper
+		// list.listIterator(2) : Returns a list-iterator of the elements in
+		// this list (in proper
 		// sequence), starting at the specified position in the list. Obeys the
 		// general contract of List.listIterator(int).
 
@@ -224,8 +229,8 @@ public class DsPractice<T> {
 			Integer integer = (Integer) iterator.next();
 			System.err.println(integer);
 		}
-		
-		int mid = list.size()/2;
+
+		int mid = list.size() / 2;
 		list.remove(mid);
 
 		System.out.println(tset.headSet(tset.last()));
@@ -391,6 +396,45 @@ public class DsPractice<T> {
 			quickSort(arr, index, right);
 	}
 
+	public static void longestString(String a) {
+
+		// abcdeefghijklmno
+
+		char[] clist = a.toCharArray();
+		Map<Character, Integer> map = new LinkedHashMap<Character, Integer>();
+		StringBuffer longest = new StringBuffer();
+
+		for (int i = 0; i < clist.length; i++) {
+
+			if (!map.containsKey(clist[i])) {
+				map.put(clist[i], i);
+				System.out.println(clist[i]);
+
+			} else {
+				System.out.println("here");
+				int newIndex = i + 1;
+				System.out.println(clist[i]);
+				map.entrySet().removeIf(k -> k.getValue() < newIndex);
+			}
+
+			if (map.size() > longest.length()) {
+				longest.setLength(0);
+				map.forEach((k, v) -> {
+					longest.append(k.toString());
+				});
+			}
+		}
+		System.out.println("longest sequence: " + longest.toString());
+	}
+	
+	public static void traverseNode(int startNode,int startOffset, int endNode,int endOffset) {
+	
+		Jsoup
+	}
+	
+	
+	
+
 	// Write a program that breaks up a string of words with no spaces into a
 	// string with appropriate spaces
 
@@ -412,6 +456,5 @@ public class DsPractice<T> {
 	// for (c = 0; c < n; c++) array[c] = in.nextInt();
 	// System.out.println("Enter value to find");
 	// search = in.nextInt();
-
 
 }
