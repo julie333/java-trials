@@ -1,0 +1,33 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+jar {
+	baseName = 'windows-call-bat-hierarchy'
+	version = '1.0.0'
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+ext.assertJVersion  = '3.5.2'
+ext.junitVersion    = '4.12'
+ext.mockitoJVersion = '2.7.0'
+ext.log4jVersion    = '2.8'
+ext.lombokVersion	= '1.16.12'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	compileOnly("org.projectlombok:lombok:${lombokVersion}")
+	testCompile("junit:junit:${junitVersion}")
+	testCompile("org.assertj:assertj-core:${assertJVersion}")
+	testCompile("org.mockito:mockito-core:${mockitoJVersion}")
+	runtime("org.apache.logging.log4j:log4j-core:${log4jVersion}")
+	compile group: 'guru.nidi', name: 'graphviz-java', version: '0.1.5'
+}
+
+task wrapper(type: Wrapper) {
+	gradleVersion = '3.3'
+}
