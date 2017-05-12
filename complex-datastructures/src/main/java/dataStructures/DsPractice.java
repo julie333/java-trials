@@ -61,6 +61,7 @@ public class DsPractice<T> {
 		findTheMissingNumber(new int[] { 7, 6, 0, 1, 3, 2, 4 });
 
 		binarySearch(new int[] { 7, 6, 0, 1, 3, 2, 4 }, 3);
+			StairCase(6);
 <<<<<<< HEAD
 =======
 
@@ -70,6 +71,29 @@ public class DsPractice<T> {
 	}
 
 	/**************************** Solution **********************************/
+		
+
+
+
+	static void StairCase(int n) {
+
+		int j = n;
+		for (int i = 1; i <= n; i++) {
+			StringBuffer str = new StringBuffer();
+			int var1 = j;
+			while (var1 > 1) {
+				str.append(' ');
+				var1--;
+			}
+			int var2 = i;
+			while (var2 > 0) {
+				str.append('#');
+				var2--;
+			}
+			System.err.println(str);
+			j--;
+		}
+	}
 
 	// FizzBuzz Functions Java
 	public static String[] fizzBuzz(int start, int end) {
