@@ -239,26 +239,17 @@ public class DsPractice<T> {
 		list.add(3);
 		list.add(4);
 
-<<<<<<< HEAD
 		// list.listIterator(2) : Returns a list-iterator of the elements in this list (in proper
-=======
 		// list.listIterator(2) : Returns a list-iterator of the elements in
-		// this list (in proper
->>>>>>> f647fc72ee016fbce6c713366174ff089fb2c3d3
-		// sequence), starting at the specified position in the list. Obeys the
+		// this list (in proper sequence), starting at the specified position in the list. Obeys the
 		// general contract of List.listIterator(int).
 
 		for (Iterator<Integer> iterator = list.listIterator(2); iterator.hasNext();) {
 			Integer integer = (Integer) iterator.next();
 			System.err.println(integer);
 		}
-<<<<<<< HEAD
 		
 		int mid = list.size()/2;
-=======
-
-		int mid = list.size() / 2;
->>>>>>> f647fc72ee016fbce6c713366174ff089fb2c3d3
 		list.remove(mid);
 
 		System.out.println(tset.headSet(tset.last()));
@@ -424,8 +415,6 @@ public class DsPractice<T> {
 			quickSort(arr, index, right);
 	}
 
-<<<<<<< HEAD
-=======
 	public static void longestString(String a) {
 
 		// abcdeefghijklmno
