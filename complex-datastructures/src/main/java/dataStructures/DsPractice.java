@@ -3,10 +3,7 @@ package dataStructures;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
-<<<<<<< HEAD
-=======
 import java.util.LinkedHashMap;
->>>>>>> f647fc72ee016fbce6c713366174ff089fb2c3d3
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.Map;
@@ -61,21 +58,13 @@ public class DsPractice<T> {
 		findTheMissingNumber(new int[] { 7, 6, 0, 1, 3, 2, 4 });
 
 		binarySearch(new int[] { 7, 6, 0, 1, 3, 2, 4 }, 3);
-			StairCase(6);
-<<<<<<< HEAD
-=======
-
-		longestString("abcdeefghijklnmmno");
->>>>>>> f647fc72ee016fbce6c713366174ff089fb2c3d3
-
+		StairCase(6);
+         	longestString("abcdeefghijklnmmno");
 	}
 
 	/**************************** Solution **********************************/
 		
-
-
-
-	static void StairCase(int n) {
+     static void StairCase(int n) {
 
 		int j = n;
 		for (int i = 1; i <= n; i++) {
@@ -473,37 +462,4 @@ public class DsPractice<T> {
 		Jsoup
 	}
 	
-	
-	
-
->>>>>>> f647fc72ee016fbce6c713366174ff089fb2c3d3
-	// Write a program that breaks up a string of words with no spaces into a
-	// string with appropriate spaces
-
-	// Find 3 numbers in an array adding up to a given sum S. 3SUM
-
-	// Given a list of integers of at least length 7,
-	// print the average of each consecutive 7 number long subsequence (sliding
-	// window).
-
-	// How would you find the power set of a set of numbers?
-
-	// finding duplicate numbers
-
-	// Scanner in = new Scanner(System.in);
-	// System.out.println("Enter number of elements");
-	// n = in.nextInt();
-	// array = new int[n];
-<<<<<<< HEAD
-	// System.out.println("Enter " + n + " integers");
-=======
->>>>>>> f647fc72ee016fbce6c713366174ff089fb2c3d3
-	// for (c = 0; c < n; c++) array[c] = in.nextInt();
-	// System.out.println("Enter value to find");
-	// search = in.nextInt();
-
-<<<<<<< HEAD
-
-=======
->>>>>>> f647fc72ee016fbce6c713366174ff089fb2c3d3
 }
