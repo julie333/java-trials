@@ -83,6 +83,95 @@ public class DsPractice<T> {
 			j--;
 		}
 	}
+	
+	
+	static void subsets() {
+
+		String string = "welcometojava";
+
+		// max and min lexical element
+		int n = 3;
+
+		TreeSet<String> set = new TreeSet<>();
+		for (int i = 0; i <= string.length() - n; i++) {
+			set.add(string.substring(i, i + 3));
+		}
+		System.out.println("Mininum: " + set.first());
+		System.out.println("Maximum: " + set.last());
+
+		// Anagrams
+		String string2 = "ewlcomeotaavj";
+
+		if (string.length() == string2.length()) {
+
+			char[] a = string.toCharArray();
+			char[] b = string2.toCharArray();
+
+			Arrays.sort(a);
+			Arrays.sort(b);
+			System.out.println(a);
+			System.out.println(b);
+			if (Arrays.equals(a, b)) {
+				System.out.println("true");
+			}
+
+			class Printer {
+				public <T> void printArray(T[] array) {
+					for (T item : array) {
+						System.out.println(item);
+					}
+				}
+			}
+
+			// Split to tokens
+			String s = "He is a very very good boy, isn't he?";
+			// Pattern p = Pattern.compile("/ /g")
+			for (String s1 : s.split("[ !,?._'@]+")) {
+				System.out.println(s1);
+			}
+		}
+	}
+
+	static void getNumericOutput() {
+
+		String s = "10*20+30-40/50";
+
+		Stack<Double> s2 = new Stack<Double>();
+		Stack<String> s3 = new Stack<String>();
+		
+		for (String s4 : s.split("[*+-/]")) {
+			s2.push(Double.parseDouble(s4));
+		}
+
+		for (String s5 : s.split("[0-9]+")) {
+			s3.push(s5);
+		}
+
+		double result = 0;
+
+		while (s3.size()>1) {
+			// String s = "10*20+30-40/50";
+			double operand1 = s2.pop();
+			double operand2 = s2.pop();
+			String operator = s3.pop();
+
+			if (operator.equals("+"))
+				result = operand2 + operand1;
+			else if (operator.equals("-"))
+				result = operand2 - operand1;
+			else if (operator.equals("*"))
+				result = operand2 * operand1;
+			else if (operator.equals("/"))
+				result = operand2 / operand1;
+			
+			s2.push(result);	
+			System.out.println(operand1);
+			System.out.println(operand2);
+			System.out.println(operator);
+			System.out.println("Result" + result);
+		}
+	}
+
 
 	// FizzBuzz Functions Java
 	public static String[] fizzBuzz(int start, int end) {
