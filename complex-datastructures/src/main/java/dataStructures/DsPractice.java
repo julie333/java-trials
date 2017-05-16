@@ -39,38 +39,25 @@ public class DsPractice<T> {
 		int[] myArray = new int[] { 10, 20, 30, 40, 50, 60 };
 		int[] myArray2 = new int[] { 50, 30, 40, 60, 10, 50, 20 };
 
-		findRange(myArray);
-
-		findMedian(myArray);
-
-		removeWhitespace(" I am trying			to\t 		" + "\n " + "remove\n spaces");
-
-		binaryTree(myArray2);
-
-		powerOfTwo(15000000000.0);
-
-		twoSum(new int[] { 50, 30, 40, 60, 10, 50, 20 }, 100);
-
-		stringFunctionsinJava();
-
-		fizzBuzz(1, 30);
-
-		findTheMissingNumber(new int[] { 7, 6, 0, 1, 3, 2, 4 });
-
-		binarySearch(new int[] { 7, 6, 0, 1, 3, 2, 4 }, 3);
-		
 		StairCase(6);
-		
 		subsets();
-		
 		getNumericOutput();
-		
-         	longestString("abcdeefghijklnmmno");
+		findRange(myArray);
+		findMedian(myArray);
+		removeWhitespace(" I am trying			to\t 		" + "\n " + "remove\n spaces");
+		binaryTree(myArray2);
+		powerOfTwo(15000000000.0);
+		twoSum(new int[] { 50, 30, 40, 60, 10, 50, 20 }, 100);
+		stringFunctionsinJava();
+		fizzBuzz(1, 30);
+		findTheMissingNumber(new int[] { 7, 6, 0, 1, 3, 2, 4 });
+		binarySearch(new int[] { 7, 6, 0, 1, 3, 2, 4 }, 3);
+		longestString("abcdeefghijklnmmno");
 	}
 
 	/**************************** Solution **********************************/
-		
-     static void StairCase(int n) {
+
+	static void StairCase(int n) {
 
 		int j = n;
 		for (int i = 1; i <= n; i++) {
@@ -89,8 +76,7 @@ public class DsPractice<T> {
 			j--;
 		}
 	}
-	
-	
+
 	static void subsets() {
 
 		String string = "welcometojava";
@@ -144,7 +130,7 @@ public class DsPractice<T> {
 
 		Stack<Double> s2 = new Stack<Double>();
 		Stack<String> s3 = new Stack<String>();
-		
+
 		for (String s4 : s.split("[*+-/]")) {
 			s2.push(Double.parseDouble(s4));
 		}
@@ -155,7 +141,7 @@ public class DsPractice<T> {
 
 		double result = 0;
 
-		while (s3.size()>1) {
+		while (s3.size() > 1) {
 			// String s = "10*20+30-40/50";
 			double operand1 = s2.pop();
 			double operand2 = s2.pop();
@@ -169,15 +155,14 @@ public class DsPractice<T> {
 				result = operand2 * operand1;
 			else if (operator.equals("/"))
 				result = operand2 / operand1;
-			
-			s2.push(result);	
+
+			s2.push(result);
 			System.out.println(operand1);
 			System.out.println(operand2);
 			System.out.println(operator);
 			System.out.println("Result" + result);
 		}
 	}
-
 
 	// FizzBuzz Functions Java
 	public static String[] fizzBuzz(int start, int end) {
@@ -334,17 +319,19 @@ public class DsPractice<T> {
 		list.add(3);
 		list.add(4);
 
-		// list.listIterator(2) : Returns a list-iterator of the elements in this list (in proper
 		// list.listIterator(2) : Returns a list-iterator of the elements in
-		// this list (in proper sequence), starting at the specified position in the list. Obeys the
+		// this list (in proper
+		// list.listIterator(2) : Returns a list-iterator of the elements in
+		// this list (in proper sequence), starting at the specified position in
+		// the list. Obeys the
 		// general contract of List.listIterator(int).
 
 		for (Iterator<Integer> iterator = list.listIterator(2); iterator.hasNext();) {
 			Integer integer = (Integer) iterator.next();
 			System.err.println(integer);
 		}
-		
-		int mid = list.size()/2;
+
+		int mid = list.size() / 2;
 		list.remove(mid);
 
 		System.out.println(tset.headSet(tset.last()));
@@ -540,10 +527,10 @@ public class DsPractice<T> {
 		}
 		System.out.println("longest sequence: " + longest.toString());
 	}
-	
+
 	public static void traverseNode(int startNode,int startOffset, int endNode,int endOffset) {
 	
-		Jsoup
+		//Jsoup
 	}
-	
+
 }
