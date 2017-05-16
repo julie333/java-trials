@@ -43,7 +43,7 @@ public class DsPractice<T> {
 		subsets();
 		getNumericOutput();
 		findUniqueContiguous();
-		findUniqueContiguousinSubarray() 
+		findUniqueContiguousinSubarray();
 		findRange(myArray);
 		findMedian(myArray);
 		removeWhitespace(" I am trying			to\t 		" + "\n " + "remove\n spaces");
