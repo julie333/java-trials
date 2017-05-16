@@ -165,41 +165,48 @@ public class DsPractice<T> {
 		}
 	}
 	
-		// maximum amount of unique numbers among in the contiguous order
+	// maximum amount of unique numbers among in the contiguous order
 	static void findUniqueContiguous() {
 
-		ArrayDeque<Integer> deque = new ArrayDeque<Integer>() {
+		List<Integer> list = new LinkedList<Integer>() {
+			private static final long serialVersionUID = 1L;
 			{
 				add(5);
 				add(3);
-				add(5);
+				add(7);
 				add(3);
 				add(4);
 				add(6);
 				add(7);
 				add(8);
-				add(2);
-				add(1);
+				add(3);
+				add(5);
 			}
 		};
-		
+
 		int max = 0;
-		Set set = new LinkedHashSet<>();
-		
-		for (int num : deque) {
-			if (set.contains(num)) {
-				if (set.size() > max) {
-					max = set.size();
-					set.clear();
-				}
-			} else {
-				set.add(num);
+		ArrayDeque<Integer> deque = new ArrayDeque<Integer>();
+
+		// Array : 5373467835
+
+		for (int num : list) {
+			if (deque.contains(num)) {
+				if (deque.size() > max)
+					max = deque.size();
+
+				// Remove the numbers before the duplicate
+				while (deque.peek() != num)
+					System.out.println(deque.pollFirst());
+
+				// Remove the number
+				System.out.println(deque.pollFirst());
 			}
-		}	
-		if (set.size() > max) 
-			max = set.size();
-		
-		System.out.println("Maximum number of unique elements contiguously in array: " + max );
+			deque.addLast(num);
+			System.out.println(deque);
+		}
+		if (deque.size() > max)
+			max = deque.size();
+		System.out.println("Maximum number of unique elements contiguously in array: " + max);
 	}
 
 	// FizzBuzz Functions Java
