@@ -58,7 +58,13 @@ public class DsPractice<T> {
 		findTheMissingNumber(new int[] { 7, 6, 0, 1, 3, 2, 4 });
 
 		binarySearch(new int[] { 7, 6, 0, 1, 3, 2, 4 }, 3);
+		
 		StairCase(6);
+		
+		subsets();
+		
+		getNumericOutput();
+		
          	longestString("abcdeefghijklnmmno");
 	}
 
