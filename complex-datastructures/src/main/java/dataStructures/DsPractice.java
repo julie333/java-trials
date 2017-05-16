@@ -43,6 +43,7 @@ public class DsPractice<T> {
 		subsets();
 		getNumericOutput();
 		findUniqueContiguous();
+		findUniqueContiguousinSubarray() 
 		findRange(myArray);
 		findMedian(myArray);
 		removeWhitespace(" I am trying			to\t 		" + "\n " + "remove\n spaces");
@@ -208,6 +209,40 @@ public class DsPractice<T> {
 			max = deque.size();
 		System.out.println("Maximum number of unique elements contiguously in array: " + max);
 	}
+	
+	// maximum amount of unique numbers among in the contiguous order in the Subarray
+	static void findUniqueContiguousinSubarray() {
+
+		List<Integer> list = new LinkedList<Integer>() {
+			private static final long serialVersionUID = 1L;
+			{add(5); add(3); add(7);add(3);add(7);add(6);add(6);add(8);add(7);add(5);}
+		};
+
+		int max = 0;
+		int subarray_size = 5;
+		ArrayDeque<Integer> deque = new ArrayDeque<Integer>();
+
+		for (int num : list) {
+			if (deque.contains(num)) {
+				// Condition to limit for subarray
+				if (deque.size() > max && max < subarray_size)
+					max = deque.size();
+
+				// Remove the numbers before the duplicate
+				while (deque.peek() != num)
+					System.out.println(deque.pollFirst());
+
+				// Remove the number
+				System.out.println(deque.pollFirst());
+			}
+			deque.addLast(num);
+		}
+		if (deque.size() > max && max < subarray_size)
+			max = deque.size();
+		System.out.println(
+				"Maximum number of unique elements contiguously in subarray of size " + subarray_size + " is " + max);
+	}
+
 
 	// FizzBuzz Functions Java
 	public static String[] fizzBuzz(int start, int end) {
