@@ -52,6 +52,7 @@ public class DsPractice<T> {
 		twoSum(new int[] { 50, 30, 40, 60, 10, 50, 20 }, 100);
 		stringFunctionsinJava();
 		fizzBuzz(1, 30);
+		arrayReverse();
 		findTheMissingNumber(new int[] { 7, 6, 0, 1, 3, 2, 4 });
 		binarySearch(new int[] { 7, 6, 0, 1, 3, 2, 4 }, 3);
 		longestString("abcdeefghijklnmmno");
@@ -266,6 +267,33 @@ public class DsPractice<T> {
 			System.out.println(s);
 
 		return result;
+	}
+	
+	static void arrayReverse() {
+
+		int[] arr = { 305, 97, 1290, 5591, 5930, 9315, 440, 6533, 7470 };
+
+		// Just Reverse Print it
+		System.out.println("Reverse print the array:");
+		for (int i = arr.length - 1; i >= 0; i--) {
+			System.out.print(arr[i] + " ");
+		}
+
+		// Mirror Image of array
+		StringBuffer a = new StringBuffer(Arrays.toString(arr));
+		System.out.println(
+				"\nMirror Image of array:\n" + a.reverse().toString().replace(",", "").replaceAll("[\\[\\]]", ""));
+
+		// Actually reverse it
+		for (int i = 0; i < arr.length / 2; i++) {
+			int temp = 0;
+			int j = arr.length - i - 1;
+
+			temp = arr[i];
+			arr[i] = arr[j];
+			arr[j] = temp;
+		}
+		System.out.println("Actually reverse the array:\n" + Arrays.toString(arr).replaceAll("[,\\[\\]]", ""));
 	}
 
 	// String Functions Java
