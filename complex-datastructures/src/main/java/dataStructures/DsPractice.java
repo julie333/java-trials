@@ -24,10 +24,8 @@ public class DsPractice<T> {
 	// Good when each item is unique
 	TreeSet<T> ts = new TreeSet<>();
 	TreeMap<Integer, Integer> tmap = new TreeMap<Integer, Integer>();
-
 	// add,peek,poke - For queues of things
 	Queue<String> q = new LinkedList<String>();
-
 	LinkedHashSet<T> str1 = new LinkedHashSet<>();
 
 	public DsPractice() {
@@ -35,17 +33,14 @@ public class DsPractice<T> {
 	}
 
 	public static void main(String[] args) {
-
-		int[] myArray = new int[] { 10, 20, 30, 40, 50, 60 };
-		int[] myArray2 = new int[] { 50, 30, 40, 60, 10, 50, 20 };
-
 		StairCase(6);
+		findBalancedString();
 		subsets();
 		getNumericOutput();
 		findUniqueContiguous();
 		findUniqueContiguousinSubarray();
-		findRange(myArray);
-		findMedian(myArray);
+		findRange();
+		findMedian();
 		removeWhitespace(" I am trying			to\t 		" + "\n " + "remove\n spaces");
 		binaryTree(myArray2);
 		powerOfTwo(15000000000.0);
@@ -58,7 +53,7 @@ public class DsPractice<T> {
 		longestString("abcdeefghijklnmmno");
 	}
 
-	/**************************** Solution **********************************/
+	/************************************************ Solutions *******************************************************/
 
 	static void StairCase(int n) {
 
@@ -79,6 +74,32 @@ public class DsPractice<T> {
 			j--;
 		}
 	}
+	
+	static void findBalancedString() {
+		Scanner sc = new Scanner(System.in);
+		while (sc.hasNextLine()) {
+			Deque<Character> stack = new ArrayDeque<Character>();
+			char[] input = sc.nextLine().toCharArray();
+			if (input.length % 2 == 0) {
+				for (char c : input) {
+					if (c == '{' || c == '(' || c == '[')
+						stack.add(c);
+					else if (c == '}' && !stack.isEmpty() && stack.peekLast().equals('{'))
+						stack.pollLast();
+					else if (c == ')' && !stack.isEmpty() && stack.peekLast().equals('('))
+						stack.pollLast();
+					else if (c == ']' && !stack.isEmpty() && stack.peekLast().equals('['))
+						stack.pollLast();
+					else
+						stack.add(c);
+				}
+				if (stack.isEmpty())
+					System.out.println(true);
+				else
+					System.out.println(false);
+			} else
+				System.out.println(false);
+		}
 
 	static void subsets() {
 
@@ -269,6 +290,7 @@ public class DsPractice<T> {
 		return result;
 	}
 	
+		
 	static void arrayReverse() {
 
 		int[] arr = { 305, 97, 1290, 5591, 5930, 9315, 440, 6533, 7470 };
@@ -365,8 +387,9 @@ public class DsPractice<T> {
 	// in the given array separated by comma.
 	// Eg: Input: [50,75] Output: (0-49,51-74,76-100)
 
-	public static void findRange(int[] myArray) {
-
+	public static void findRange() {
+		
+		int[] myArray = new int[] { 10, 20, 30, 40, 50, 60 };
 		Arrays.sort(myArray);
 		String myRange = "(";
 
@@ -385,9 +408,9 @@ public class DsPractice<T> {
 	}
 
 	// Write a function that finds the median of a set of three numbers
-
-	public static void findMedian(int[] myArray) {
-
+	public static void findMedian() {
+		
+		int[] myArray = new int[] { 10, 20, 30, 40, 50, 60 };
 		Arrays.sort(myArray);
 		int median[] = new int[2];
 
@@ -412,8 +435,9 @@ public class DsPractice<T> {
 
 	// Print out a binary tree
 
-	public static void binaryTree(int[] myArray) {
-
+	public static void binaryTree() {
+		
+		int[] myArray = new int[] { 50, 30, 40, 60, 10, 50, 20 };
 		TreeSet<Integer> tset = new TreeSet<Integer>();
 
 		for (int n : myArray) {
