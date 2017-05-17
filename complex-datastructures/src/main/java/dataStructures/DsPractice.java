@@ -55,6 +55,7 @@ public class DsPractice<T> {
 
 	/************************************************ Solutions *******************************************************/
 
+	//Print out a right Staircase pattern of size n	
 	static void StairCase(int n) {
 
 		int j = n;
@@ -75,6 +76,7 @@ public class DsPractice<T> {
 		}
 	}
 	
+	//Find whether the string is balanced : Eg: ({()}) is true , }{ is false
 	static void findBalancedString() {
 		Scanner sc = new Scanner(System.in);
 		while (sc.hasNextLine()) {
@@ -101,8 +103,8 @@ public class DsPractice<T> {
 				System.out.println(false);
 		}
 
+	//Print out different subsets of the string
 	static void subsets() {
-
 		String string = "welcometojava";
 
 		// max and min lexical element
@@ -130,7 +132,6 @@ public class DsPractice<T> {
 			if (Arrays.equals(a, b)) {
 				System.out.println("true");
 			}
-
 			class Printer {
 				public <T> void printArray(T[] array) {
 					for (T item : array) {
@@ -138,7 +139,6 @@ public class DsPractice<T> {
 					}
 				}
 			}
-
 			// Split to tokens
 			String s = "He is a very very good boy, isn't he?";
 			// Pattern p = Pattern.compile("/ /g")
@@ -148,6 +148,7 @@ public class DsPractice<T> {
 		}
 	}
 
+	// Given a string, find out the numeric output after calculating
 	static void getNumericOutput() {
 
 		String s = "10*20+30-40/50";
@@ -188,7 +189,7 @@ public class DsPractice<T> {
 		}
 	}
 	
-	// maximum amount of unique numbers among in the contiguous order
+	// Maximum amount of unique numbers among in the contiguous order
 	static void findUniqueContiguous() {
 
 		List<Integer> list = new LinkedList<Integer>() {
@@ -232,7 +233,7 @@ public class DsPractice<T> {
 		System.out.println("Maximum number of unique elements contiguously in array: " + max);
 	}
 	
-	// maximum amount of unique numbers among in the contiguous order in the Subarray
+	// Maximum amount of unique numbers among in the contiguous order in the Subarray
 	static void findUniqueContiguousinSubarray() {
 
 		List<Integer> list = new LinkedList<Integer>() {
@@ -386,7 +387,6 @@ public class DsPractice<T> {
 	// You have to return a string which says the number's range which are not
 	// in the given array separated by comma.
 	// Eg: Input: [50,75] Output: (0-49,51-74,76-100)
-
 	public static void findRange() {
 		
 		int[] myArray = new int[] { 10, 20, 30, 40, 50, 60 };
@@ -407,7 +407,7 @@ public class DsPractice<T> {
 		System.out.println(myRange);
 	}
 
-	// Write a function that finds the median of a set of three numbers
+	// Write a function that finds the median of a set of numbers
 	public static void findMedian() {
 		
 		int[] myArray = new int[] { 10, 20, 30, 40, 50, 60 };
@@ -474,7 +474,6 @@ public class DsPractice<T> {
 	// year would you have 15 billion dollars
 	// 2^10 is 1024, so 2^20 = 1024^2 is approx a million, 2^30 is approx a
 	// billion
-
 	public static void powerOfTwo(double limit) {
 
 		int i = 1;
@@ -507,7 +506,6 @@ public class DsPractice<T> {
 	// numbers is missing.
 	// Write an algorithm to figure out what the number is and what position is
 	// missing.
-
 	public static void findTheMissingNumber(int[] numberArray) {
 		int sumOfAllNumbers = 0;
 		int sumOfNumbersPresent = 0;
@@ -546,7 +544,6 @@ public class DsPractice<T> {
 	}
 
 	// Matrix Multiplication
-
 	public static void matrixMultiplication() {
 		int m, n, p, q, sum = 0, c, d, k;
 
@@ -629,10 +626,9 @@ public class DsPractice<T> {
 			quickSort(arr, index, right);
 	}
 
+	// Find the longest contiguous sequence of non repeating characters
 	public static void longestString(String a) {
-
 		// abcdeefghijklmno
-
 		char[] clist = a.toCharArray();
 		Map<Character, Integer> map = new LinkedHashMap<Character, Integer>();
 		StringBuffer longest = new StringBuffer();
@@ -661,7 +657,6 @@ public class DsPractice<T> {
 	}
 
 	public static void traverseNode(int startNode,int startOffset, int endNode,int endOffset) {
-	
 		//Jsoup
 	}
 
